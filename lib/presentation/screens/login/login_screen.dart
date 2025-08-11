@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:project_iti_2025/presentation/screens/signup/sign_up_screen_content.dart';
-import 'package:project_iti_2025/presentation/widgets/shared_card.dart';
-import 'package:project_iti_2025/presentation/widgets/auth/auth_header.dart';
 import 'package:project_iti_2025/core/constants/app_colors.dart';
 import 'package:project_iti_2025/core/constants/app_strings.dart';
+import 'package:project_iti_2025/presentation/screens/login/login_screen_conent.dart';
+import 'package:project_iti_2025/presentation/widgets/auth/auth_header.dart';
+import 'package:project_iti_2025/presentation/widgets/shared_card.dart';
 
-class SignUpScreen extends StatelessWidget {
-  const SignUpScreen({super.key});
+class LoginScreen extends StatelessWidget {
+  const LoginScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,12 +16,14 @@ class SignUpScreen extends StatelessWidget {
         child: Column(
           children: [
             AuthHeader(
-              title: AppStrings.createAccount,
-              subtitle: AppStrings.joinOurCommunity,
+              title: AppStrings.welcomeBack,
+              subtitle: AppStrings.signInToYourAccount,
             ),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 20.0),
-              child: SharedCard(child: SignUpScreenContent()),
+              child: SharedCard(
+                child: LoginScreenContent(),
+              ),
             ),
           ],
         ),

@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:project_iti_2025/blocs/signup/signup_bloc.dart';
-//import 'package:iti_project/features/auth/bloc/login/screans/login_screen.dart';
-//import 'package:iti_project/features/auth/bloc/profile/profile_bloc.dart';
-//import 'package:iti_project/features/auth/bloc/profile/screens/profile_screen.dart';
 import 'package:project_iti_2025/core/constants/app_colors.dart';
 import 'package:project_iti_2025/core/constants/app_strings.dart';
-import 'package:project_iti_2025/presentation/widgets/Custom_TextField.dart';
+import 'package:project_iti_2025/presentation/screens/login/login_screen.dart';
+import 'package:project_iti_2025/presentation/widgets/custom_text_field.dart';
 import 'package:project_iti_2025/presentation/widgets/primary_botton.dart';
 
 class SignUpScreenContent extends StatefulWidget {
@@ -168,12 +166,12 @@ class _SignUpScreenContentState extends State<SignUpScreenContent> {
                     ),
                     TextButton(
                       onPressed: () {
-                        /*Navigator.push(
+                        Navigator.push(
                           context,
                           MaterialPageRoute(
                             builder: (_) => const LoginScreen(),
                           ),
-                        );*/
+                        );
                       },
                       style: TextButton.styleFrom(
                         backgroundColor: Colors.transparent,
