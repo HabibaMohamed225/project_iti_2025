@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:project_iti_2025/blocs/login/login_bloc.dart';
+import 'package:project_iti_2025/blocs/profile/profile_bloc.dart';
 import 'package:project_iti_2025/core/constants/app_colors.dart';
 import 'package:project_iti_2025/core/constants/app_strings.dart';
+import 'package:project_iti_2025/presentation/screens/profile/profile_screen.dart';
 import 'package:project_iti_2025/presentation/screens/signup/signup_screen.dart';
 import 'package:project_iti_2025/presentation/widgets/custom_text_field.dart';
 import 'package:project_iti_2025/presentation/widgets/primary_botton.dart';
@@ -45,9 +47,18 @@ class _LoginScreenContentState extends State<LoginScreenContent> {
           return;
         }
 
-        if (state is LoginSuccessState) {
-          Navigator.pushReplacementNamed(context, '/profile');
-        }
+       if (state is LoginSuccessState) {
+  Navigator.pushReplacement(
+    context,
+    MaterialPageRoute(
+      builder: (_) => BlocProvider(
+        create: (context) => ProfileBloc(),
+        child: const ProfileScreen(),
+      ),
+    ),
+  );
+}
+
       },
       child: Column(
         children: [
