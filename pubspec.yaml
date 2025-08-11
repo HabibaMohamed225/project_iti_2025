@@ -39,6 +39,9 @@ dependencies:
   cloud_firestore: ^5.4.4
   meta: ^1.9.1 # أو أي إصدار أحدث
   equatable: ^2.0.5
+  image_picker: ^1.0.0
+  file_picker: ^6.1.1
+  image_picker_web: ^2.0.7
 
 
   # The following adds the Cupertino Icons font to your application.
