@@ -4,11 +4,11 @@ import 'package:project_iti_2025/blocs/login/login_bloc.dart';
 import 'package:project_iti_2025/blocs/profile/profile_bloc.dart';
 import 'package:project_iti_2025/core/constants/app_colors.dart';
 import 'package:project_iti_2025/core/constants/app_strings.dart';
+import 'package:project_iti_2025/presentation/screens/admin/admin_page_screan.dart';
 import 'package:project_iti_2025/presentation/screens/profile/profile_screen.dart';
 import 'package:project_iti_2025/presentation/screens/signup/signup_screen.dart';
 import 'package:project_iti_2025/presentation/widgets/custom_text_field.dart';
 import 'package:project_iti_2025/presentation/widgets/primary_botton.dart';
-
 
 class LoginScreenContent extends StatefulWidget {
   const LoginScreenContent({super.key});
@@ -39,26 +39,25 @@ class _LoginScreenContentState extends State<LoginScreenContent> {
           );
         }
 
-        if (state is LoginRedirectToSignUpState) {
+        if (state is LoginRedirectToAdminState) {
           Navigator.pushReplacement(
             context,
-            MaterialPageRoute(builder: (context) => const SignUpScreen()),
+            MaterialPageRoute(builder: (context) => const AdminProductsPage()),
           );
           return;
         }
 
-       if (state is LoginSuccessState) {
-  Navigator.pushReplacement(
-    context,
-    MaterialPageRoute(
-      builder: (_) => BlocProvider(
-        create: (context) => ProfileBloc(),
-        child: const ProfileScreen(),
-      ),
-    ),
-  );
-}
-
+        if (state is LoginSuccessState) {
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(
+              builder: (_) => BlocProvider(
+                create: (context) => ProfileBloc(),
+                child: const ProfileScreen(),
+              ),
+            ),
+          );
+        }
       },
       child: Column(
         children: [

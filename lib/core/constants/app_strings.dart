@@ -144,4 +144,7 @@ class AppStrings {
   static const String maskedPassword = '********';
   static const String deleteAccountInstruction =
       'If you want to delete the account, click here.';
+  static const String errorOccurred = 'An error occurred: ';
+  static const String loading = 'Loading...';
+  static const String noProductsFound = 'No products match your search.';
 }

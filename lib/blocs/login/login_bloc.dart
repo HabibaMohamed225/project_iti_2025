@@ -29,7 +29,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
 
     if (event.email.trim() == demoEmail &&
         event.password.trim() == demoPassword) {
-      emit(LoginRedirectToSignUpState());
+      emit(LoginRedirectToAdminState());
       return;
     }
 

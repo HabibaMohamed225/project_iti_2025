@@ -21,4 +21,4 @@ class LoginFaildState extends LoginState {
 
 class LoginNotVilad extends LoginState {}
 
-class LoginRedirectToSignUpState extends LoginState {}
+class LoginRedirectToAdminState extends LoginState {}
