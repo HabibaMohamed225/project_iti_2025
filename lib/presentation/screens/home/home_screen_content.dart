@@ -26,7 +26,6 @@ class _HomeScreenContentState extends State<HomeScreenContent> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // اللوجو واسم المطعم
           Row(
             children: [
               Image.asset(
