@@ -183,7 +183,6 @@ class _HomeScreenContentState extends State<HomeScreenContent> {
                                   ),
                                   Row(
                                     children: [
-                                      // زر المفضلة
                                       IconButton(
                                         padding: EdgeInsets.zero,
                                         constraints: const BoxConstraints(),
