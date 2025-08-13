@@ -9,6 +9,10 @@ import 'package:project_iti_2025/presentation/screens/login/login_screen.dart';
 import 'package:project_iti_2025/presentation/screens/profile/profile_screen.dart';
 import 'package:project_iti_2025/presentation/screens/signup/signup_screen.dart';
 import 'package:project_iti_2025/core/themes/app_themes.dart';
+import 'package:project_iti_2025/presentation/screens/home/home_screen.dart';
+import 'package:project_iti_2025/blocs/cart/cart_bloc.dart';     // <- جديد
+
+
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -16,23 +20,25 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
-      providers: [
-        BlocProvider(create: (context) => LoginBloc()),
-        BlocProvider(create: (context) => ProfileBloc()),
-        BlocProvider(
-          create: (_) => ProductBloc(ProductRepo())..add(LoadProductsEvent()),
-        ),
-      ],
-      child: MaterialApp(
-        theme: AppThemes.lightTheme,
-        home: const LoginScreen(),
-        debugShowCheckedModeBanner: false,
-        routes: {
-          '/signup': (ctx) => const SignUpScreen(),
-          '/profile': (ctx) => const ProfileScreen(),
-          '/admin': (ctx) => const AdminProductsPage(),
-        },
-      ),
+providers: [
+  BlocProvider(create: (context) => LoginBloc()),
+  BlocProvider(create: (context) => ProfileBloc()),
+  BlocProvider(
+    create: (_) => ProductBloc(ProductRepo())..add(LoadProductsEvent()),
+  ),
+  BlocProvider(create: (_) => CartBloc()), // Added CartBloc here
+],
+child: MaterialApp(
+  theme: AppThemes.lightTheme,
+  home: const LoginScreen(),
+  debugShowCheckedModeBanner: false,
+  routes: {
+    '/signup': (ctx) => const SignUpScreen(),
+    '/profile': (ctx) => const ProfileScreen(),
+    '/admin': (ctx) => const AdminProductsPage(),
+    '/home': (ctx) => const HomeScreen(),
+  },
+),
     );
   }
 }
