@@ -39,24 +39,23 @@ class _SignUpScreenContentState extends State<SignUpScreenContent> {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => SignUpBloc(),
-      child: BlocBuilder<SignUpBloc, SignUpState>(
+      child: BlocConsumer<SignUpBloc, SignUpState>(
+        listener: (context, state) {
+          if (state is SignUpSuccess) {
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(
+                builder: (_) => BlocProvider(
+                  create: (context) => ProfileBloc(),
+                  child: const ProfileScreen(),
+                ),
+              ),
+            );
+          }
+        },
         builder: (context, state) {
           if (state is SignUpLoading) {
             return const Center(child: CircularProgressIndicator());
-          }
-
-          if (state is SignUpSuccess) {
-            WidgetsBinding.instance.addPostFrameCallback((_) {
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(
-                  builder: (_) => BlocProvider(
-                    create: (context) => ProfileBloc(),
-                    child: const ProfileScreen(),
-                  ),
-                ),
-              );
-            });
           }
 
           return Form(

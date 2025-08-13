@@ -34,7 +34,7 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
     emit(ProductLoadingState());
     await _productsSubscription?.cancel();
     _productsSubscription = productRepo.getProducts().listen((products) {
-      add(ProductsLoadedInternally(products)); // ✅ intermediate event
+      add(ProductsLoadedInternally(products));
     });
   }
 
