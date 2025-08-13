@@ -15,12 +15,11 @@ class MenuBloc extends Bloc<MenuEvent, MenuState> {
     emit(MenuLoading());
 
     try {
-      // جلب البيانات من الـ products collection
       final snapshot =
           await FirebaseFirestore.instance.collection('products').get();
 
       if (snapshot.docs.isEmpty) {
-        emit(MenuLoaded(const [])); // لو مفيش بيانات
+        emit(MenuLoaded(const [])); 
         return;
       }
 
