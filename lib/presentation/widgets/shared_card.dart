@@ -1,4 +1,3 @@
-// lib/widgets/shared_card.dart
 import 'package:flutter/material.dart';
 import 'package:project_iti_2025/core/constants/app_colors.dart';
 

@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:project_iti_2025/blocs/home/menu_bloc.dart';
 import 'package:project_iti_2025/core/constants/app_colors.dart';
 
-// Cart imports
 import 'package:project_iti_2025/blocs/cart/cart_bloc.dart';
 import 'package:project_iti_2025/blocs/cart/cart_event.dart';
 import 'package:project_iti_2025/data/models/cart_item.dart';
@@ -49,9 +48,7 @@ class _HomeScreenContentState extends State<HomeScreenContent> {
               const SizedBox(width: 40),
             ],
           ),
-
           const SizedBox(height: 12),
-
           TextField(
             decoration: InputDecoration(
               hintText: "Search...",
@@ -69,9 +66,7 @@ class _HomeScreenContentState extends State<HomeScreenContent> {
               });
             },
           ),
-
           const SizedBox(height: 16),
-
           Expanded(
             child: BlocBuilder<MenuBloc, MenuState>(
               builder: (context, state) {
@@ -130,7 +125,6 @@ class _HomeScreenContentState extends State<HomeScreenContent> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            // صورة المنتج
                             ClipRRect(
                               borderRadius: const BorderRadius.vertical(
                                 top: Radius.circular(16),
@@ -196,14 +190,14 @@ class _HomeScreenContentState extends State<HomeScreenContent> {
                                         onPressed: () {
                                           setState(() {
                                             if (isFavorite) {
-                                              favoriteItems.remove(item['name']);
+                                              favoriteItems
+                                                  .remove(item['name']);
                                             } else {
                                               favoriteItems.add(item['name']);
                                             }
                                           });
                                         },
                                       ),
-                                      // زر الإضافة للكارت
                                       IconButton(
                                         padding: EdgeInsets.zero,
                                         constraints: const BoxConstraints(),
@@ -216,15 +210,15 @@ class _HomeScreenContentState extends State<HomeScreenContent> {
                                                 .toString(),
                                             name:
                                                 (item['name'] ?? '').toString(),
-                                            price: double.tryParse(item['price']
-                                                        ?.toString() ??
-                                                    '0') ??
+                                            price: double.tryParse(
+                                                    item['price']?.toString() ??
+                                                        '0') ??
                                                 0.0,
                                             quantity: 1,
                                             imageUrl:
                                                 item['imageUrl']?.toString(),
-                                            description: item['description']
-                                                ?.toString(),
+                                            description:
+                                                item['description']?.toString(),
                                           );
 
                                           context

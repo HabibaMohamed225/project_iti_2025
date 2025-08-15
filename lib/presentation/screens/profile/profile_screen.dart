@@ -22,8 +22,7 @@ class ProfileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     context.read<ProfileBloc>().add(LoadProfile());
 
-  const bottomNavBarHeight = 56.0;
-
+    const bottomNavBarHeight = 56.0;
 
     return Scaffold(
       backgroundColor: AppColors.pageBackground,
@@ -37,7 +36,7 @@ class ProfileScreen extends StatelessWidget {
               alignment: Alignment.center,
               child: const Column(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children:  [
+                children: [
                   Text(
                     AppStrings.myProfile,
                     style: TextStyle(
@@ -88,7 +87,7 @@ class ProfileScreen extends StatelessWidget {
           ],
         ),
       ),
-      bottomNavigationBar: const AppBottomNav(),
+      bottomNavigationBar: const AppBottomNav(currentIndex: 2),
     );
   }
 }

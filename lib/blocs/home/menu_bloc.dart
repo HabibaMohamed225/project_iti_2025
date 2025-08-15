@@ -19,7 +19,7 @@ class MenuBloc extends Bloc<MenuEvent, MenuState> {
           await FirebaseFirestore.instance.collection('products').get();
 
       if (snapshot.docs.isEmpty) {
-        emit(MenuLoaded(const [])); 
+        emit(MenuLoaded(const []));
         return;
       }
 

@@ -17,7 +17,7 @@ class ProductFormListener extends StatelessWidget {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
               content: Text(
-                "✅ ${AppStrings.image} uploaded successfully",
+                "${AppStrings.image} uploaded successfully",
                 style: theme.appBarTheme.toolbarTextStyle,
               ),
             ),
