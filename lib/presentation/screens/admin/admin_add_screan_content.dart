@@ -44,8 +44,6 @@ class ProductFormPageContent extends StatelessWidget {
                   priceController: priceController,
                   descriptionController: descriptionController,
                   imageUrlController: imageUrlController,
-                  // لو حابة تمرري style للنصوص داخل الفورم:
-                  // textStyle: theme.textTheme.bodyMedium,
                 ),
                 const SizedBox(height: 10),
                 ProductFormActions(

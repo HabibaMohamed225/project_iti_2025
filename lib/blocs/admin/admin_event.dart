@@ -8,6 +8,8 @@ abstract class ProductEvent extends Equatable {
 
 class LoadProductsEvent extends ProductEvent {}
 
+class CancelUploadEvent extends ProductEvent {}
+
 class AddProductEvent extends ProductEvent {
   final Product product;
   const AddProductEvent(this.product);

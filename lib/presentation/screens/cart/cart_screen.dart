@@ -4,6 +4,7 @@ import 'package:project_iti_2025/blocs/cart/cart_bloc.dart';
 import 'package:project_iti_2025/blocs/cart/cart_state.dart';
 import 'package:project_iti_2025/core/constants/app_colors.dart';
 import 'package:project_iti_2025/core/constants/app_strings.dart';
+import 'package:project_iti_2025/presentation/widgets/auth/app_bottom_nav.dart';
 import 'cart_screen_content.dart';
 
 class CartScreen extends StatelessWidget {
@@ -35,6 +36,7 @@ class CartScreen extends StatelessWidget {
         ),
       ),
       body: const CartScreenContent(),
+      bottomNavigationBar: const AppBottomNav(currentIndex: 1),
     );
   }
 }

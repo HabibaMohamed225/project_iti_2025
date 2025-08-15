@@ -25,16 +25,11 @@ class CartScreenContent extends StatelessWidget {
           padding: const EdgeInsets.all(16),
           children: [
             const SizedBox(height: 12),
-
-      
             ...state.items.map((e) => Padding(
                   padding: const EdgeInsets.only(bottom: 10),
                   child: CartItemTile(item: e),
                 )),
-
             const SizedBox(height: 12),
-
-          
             SharedCard(
               padding: const EdgeInsets.all(16),
               child: Column(
@@ -48,7 +43,6 @@ class CartScreenContent extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 12),
-
                   _SummaryRow(
                     label: '${AppStrings.subtotal} (${state.itemCount} items)',
                     value: '\$${_money(state.subtotal)}',
@@ -70,12 +64,11 @@ class CartScreenContent extends StatelessWidget {
                     label: AppStrings.total,
                     value: '\$${_money(state.total)}',
                   ),
-
                   const SizedBox(height: 16),
                   PrimaryButton(
                     text: AppStrings.proceedToCheckout,
                     onPressed: () {
-                      Navigator.of(context).pushNamed('/checkout');
+                      Navigator.of(context).pushNamed('/delivery');
                     },
                   ),
                 ],

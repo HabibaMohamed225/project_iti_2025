@@ -7,6 +7,7 @@ import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/foundation.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:project_iti_2025/core/constants/app_strings.dart';
 import 'package:project_iti_2025/data/models/product_model.dart';
 import 'package:project_iti_2025/data/repositories/product_repo.dart';
 
@@ -17,6 +18,7 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
   final ProductRepo productRepo;
   StreamSubscription? _productsSubscription;
   final String apiKey = "17b300bdc6d26490ff86c5fe46f68964";
+  bool _isUploadCancelled = false;
 
   ProductBloc(this.productRepo) : super(ProductInitialState()) {
     on<LoadProductsEvent>(_onLoadProducts);
@@ -25,6 +27,7 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
     on<UpdateProductEvent>(_onUpdateProduct);
     on<DeleteProductEvent>(_onDeleteProduct);
     on<UploadImageEvent>(_onUploadImage);
+    on<CancelUploadEvent>(_onCancelUpload);
   }
 
   Future<void> _onLoadProducts(
@@ -51,9 +54,9 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
   ) async {
     try {
       await productRepo.addProduct(event.product);
-      emit(const ProductSuccessState("تمت إضافة المنتج"));
+      emit(const ProductSuccessState(AppStrings.productAdded));
     } catch (e) {
-      emit(const ProductErrorState("فشلت إضافة المنتج"));
+      emit(const ProductErrorState(AppStrings.productAdditionFailed));
     }
   }
 
@@ -63,9 +66,9 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
   ) async {
     try {
       await productRepo.updateProduct(event.product);
-      emit(const ProductSuccessState("تم تحديث المنتج"));
+      emit(const ProductSuccessState(AppStrings.productUpdated));
     } catch (e) {
-      emit(const ProductErrorState("فشل تحديث المنتج"));
+      emit(const ProductErrorState(AppStrings.productUpdateFailed));
     }
   }
 
@@ -75,9 +78,9 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
   ) async {
     try {
       await productRepo.deleteProduct(event.productId);
-      emit(const ProductSuccessState("تم حذف المنتج"));
+      emit(const ProductSuccessState(AppStrings.productRemoved));
     } catch (e) {
-      emit(const ProductErrorState("فشل حذف المنتج"));
+      emit(const ProductErrorState(AppStrings.productDeletionFailed));
     }
   }
 
@@ -85,8 +88,8 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
     UploadImageEvent event,
     Emitter<ProductState> emit,
   ) async {
+    _isUploadCancelled = false;
     emit(ProductUploadingImageState());
-
     try {
       Uint8List imageBytes;
       if (kIsWeb) {
@@ -96,21 +99,33 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
       }
 
       String base64Image = base64Encode(imageBytes);
-
       var url = Uri.parse("https://api.imgbb.com/1/upload?key=$apiKey");
       var response = await http.post(url, body: {"image": base64Image});
+
+      if (_isUploadCancelled) return;
 
       if (response.statusCode == 200) {
         var jsonResponse = jsonDecode(response.body);
         String imageUrl = jsonResponse['data']['url'];
-
         emit(ProductImageUploadedState(imageUrl));
       } else {
-        emit(ProductImageUploadErrorState("فشل رفع الصورة: ${response.body}"));
+        emit(ProductImageUploadErrorState(
+            "${AppStrings.imageUploadFailed}${response.body}"));
       }
     } catch (e) {
-      emit(ProductImageUploadErrorState(e.toString()));
+      if (!_isUploadCancelled) {
+        emit(ProductImageUploadErrorState(e.toString()));
+      }
     }
+  }
+
+  void _onCancelUpload(
+    CancelUploadEvent event,
+    Emitter<ProductState> emit,
+  ) {
+    _isUploadCancelled = true;
+    add(LoadProductsEvent());
+    emit(ProductInitialState());
   }
 
   @override

@@ -15,8 +15,7 @@ class ProfileScreenContent extends StatelessWidget {
   Widget build(BuildContext context) {
     final displayName = state.displayName ?? AppStrings.noUsername;
     final email = state.email ?? AppStrings.noEmail;
-   const maskedPassword = AppStrings.maskedPassword;
-
+    const maskedPassword = AppStrings.maskedPassword;
 
     return SingleChildScrollView(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
@@ -29,8 +28,7 @@ class ProfileScreenContent extends StatelessWidget {
           border: Border.all(color: AppColors.containerBorder),
           boxShadow: [
             BoxShadow(
-             color: Colors.black.withValues(alpha: 0.03),
-
+              color: Colors.black.withValues(alpha: 0.03),
               blurRadius: 6,
               offset: const Offset(0, 2),
             ),
@@ -79,7 +77,8 @@ class ProfileScreenContent extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 6),
-            const Align(alignment: Alignment.centerLeft, child: Text(maskedPassword)),
+            const Align(
+                alignment: Alignment.centerLeft, child: Text(maskedPassword)),
             const SizedBox(height: 12),
             const Divider(),
             const SizedBox(height: 8),

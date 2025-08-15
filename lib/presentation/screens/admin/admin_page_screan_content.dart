@@ -23,7 +23,7 @@ class AdminProductsScreenContent extends StatelessWidget {
     final productBloc = context.read<ProductBloc>();
     final navigator = Navigator.of(context);
 
-    return BlocListener<ProductBloc, ProductState>(
+    return BlocConsumer<ProductBloc, ProductState>(
       listener: (context, state) {
         if (state is ProductSuccessState) {
           productBloc.add(LoadProductsEvent());
@@ -45,125 +45,123 @@ class AdminProductsScreenContent extends StatelessWidget {
           );
         }
       },
-      child: BlocBuilder<ProductBloc, ProductState>(
-        builder: (context, state) {
-          if (state is ProductLoadingState) {
-            return const Center(child: CircularProgressIndicator());
-          } else if (state is ProductLoadedState) {
-            final products = state.products
-                .where(
-                  (p) => p.name.toLowerCase().contains(
-                        searchQuery.toLowerCase(),
-                      ),
-                )
-                .toList();
+      builder: (context, state) {
+        if (state is ProductLoadingState) {
+          return const Center(child: CircularProgressIndicator());
+        } else if (state is ProductLoadedState) {
+          final products = state.products
+              .where(
+                (p) => p.name.toLowerCase().contains(
+                      searchQuery.toLowerCase(),
+                    ),
+              )
+              .toList();
 
-            return Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Row(
-                    children: [
-                      StatCard(
-                        title: AppStrings.totalItems,
-                        value: products.length.toString(),
-                      ),
-                      const SizedBox(width: 8),
-                      Expanded(
-                        child: TextField(
-                          decoration: InputDecoration(
-                            hintText: AppStrings.searchMenuItems,
-                            hintStyle: theme.textTheme.bodySmall?.copyWith(
-                              color: theme.hintColor,
-                            ),
-                            contentPadding: const EdgeInsets.symmetric(
-                              horizontal: 12,
-                            ),
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(12),
-                              borderSide: const BorderSide(
-                                color: AppColors.containerBorder,
-                              ),
-                            ),
-                            suffixIcon: Icon(
-                              Icons.search,
-                              color: theme.iconTheme.color,
+          return Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  children: [
+                    StatCard(
+                      title: AppStrings.totalItems,
+                      value: products.length.toString(),
+                    ),
+                    const SizedBox(width: 8),
+                    Expanded(
+                      child: TextField(
+                        decoration: InputDecoration(
+                          hintText: AppStrings.searchMenuItems,
+                          hintStyle: theme.textTheme.bodySmall?.copyWith(
+                            color: theme.hintColor,
+                          ),
+                          contentPadding: const EdgeInsets.symmetric(
+                            horizontal: 12,
+                          ),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(12),
+                            borderSide: const BorderSide(
+                              color: AppColors.containerBorder,
                             ),
                           ),
-                          onChanged: onSearchChanged,
+                          suffixIcon: Icon(
+                            Icons.search,
+                            color: theme.iconTheme.color,
+                          ),
                         ),
+                        onChanged: onSearchChanged,
                       ),
-                    ],
-                  ),
-                ),
-                Expanded(
-                  child: products.isEmpty
-                      ? Center(
-                          child: Text(
-                            AppStrings.noProductsFound,
-                            style: theme.textTheme.bodyMedium?.copyWith(
-                              color: theme.hintColor,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                        )
-                      : GridView.builder(
-                          padding: const EdgeInsets.all(8),
-                          gridDelegate:
-                              const SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: 2,
-                            mainAxisSpacing: 8,
-                            crossAxisSpacing: 8,
-                            childAspectRatio: 0.75,
-                          ),
-                          itemCount: products.length,
-                          itemBuilder: (context, index) {
-                            final product = products[index];
-                            return ProductCard(
-                              product: product,
-                              onEdit: () async {
-                                final updated = await navigator.push(
-                                  MaterialPageRoute(
-                                    builder: (_) =>
-                                        ProductFormPage(product: product),
-                                  ),
-                                );
-                                if (updated == true) {
-                                  productBloc.add(LoadProductsEvent());
-                                }
-                              },
-                              onDelete: () {
-                                productBloc.add(
-                                  DeleteProductEvent(product.id),
-                                );
-                              },
-                            );
-                          },
-                        ),
-                ),
-              ],
-            );
-          } else if (state is ProductErrorState) {
-            return Center(
-              child: Text(
-                '${AppStrings.errorOccurred}${state.message}',
-                style: theme.textTheme.bodyMedium?.copyWith(
-                  color: theme.colorScheme.error,
+                    ),
+                  ],
                 ),
               ),
-            );
-          } else {
-            return Center(
-              child: Text(
-                AppStrings.loading,
-                style: theme.textTheme.bodyMedium?.copyWith(
-                  color: theme.hintColor,
-                ),
+              Expanded(
+                child: products.isEmpty
+                    ? Center(
+                        child: Text(
+                          AppStrings.noProductsFound,
+                          style: theme.textTheme.bodyMedium?.copyWith(
+                            color: theme.hintColor,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      )
+                    : GridView.builder(
+                        padding: const EdgeInsets.all(8),
+                        gridDelegate:
+                            const SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 2,
+                          mainAxisSpacing: 8,
+                          crossAxisSpacing: 8,
+                          childAspectRatio: 0.75,
+                        ),
+                        itemCount: products.length,
+                        itemBuilder: (context, index) {
+                          final product = products[index];
+                          return ProductCard(
+                            product: product,
+                            onEdit: () async {
+                              final updated = await navigator.push(
+                                MaterialPageRoute(
+                                  builder: (_) =>
+                                      ProductFormPage(product: product),
+                                ),
+                              );
+                              if (updated == true) {
+                                productBloc.add(LoadProductsEvent());
+                              }
+                            },
+                            onDelete: () {
+                              productBloc.add(
+                                DeleteProductEvent(product.id),
+                              );
+                            },
+                          );
+                        },
+                      ),
               ),
-            );
-          }
-        },
-      ),
+            ],
+          );
+        } else if (state is ProductErrorState) {
+          return Center(
+            child: Text(
+              '${AppStrings.errorOccurred}${state.message}',
+              style: theme.textTheme.bodyMedium?.copyWith(
+                color: theme.colorScheme.error,
+              ),
+            ),
+          );
+        } else {
+          return Center(
+            child: Text(
+              AppStrings.loading,
+              style: theme.textTheme.bodyMedium?.copyWith(
+                color: theme.hintColor,
+              ),
+            ),
+          );
+        }
+      },
     );
   }
 }
