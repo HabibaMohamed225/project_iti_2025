@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:project_iti_2025/blocs/profile/profile_bloc.dart';
 import 'package:project_iti_2025/blocs/signup/signup_bloc.dart';
 import 'package:project_iti_2025/core/constants/app_colors.dart';
 import 'package:project_iti_2025/core/constants/app_strings.dart';
 import 'package:project_iti_2025/presentation/screens/login/login_screen.dart';
+import 'package:project_iti_2025/presentation/screens/profile/profile_screen.dart';
 import 'package:project_iti_2025/presentation/widgets/custom_text_field.dart';
 import 'package:project_iti_2025/presentation/widgets/primary_botton.dart';
 
@@ -37,24 +39,23 @@ class _SignUpScreenContentState extends State<SignUpScreenContent> {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => SignUpBloc(),
-      child: BlocBuilder<SignUpBloc, SignUpState>(
+      child: BlocConsumer<SignUpBloc, SignUpState>(
+        listener: (context, state) {
+          if (state is SignUpSuccess) {
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(
+                builder: (_) => BlocProvider(
+                  create: (context) => ProfileBloc(),
+                  child: const ProfileScreen(),
+                ),
+              ),
+            );
+          }
+        },
         builder: (context, state) {
           if (state is SignUpLoading) {
             return const Center(child: CircularProgressIndicator());
-          }
-
-          if (state is SignUpSuccess) {
-            WidgetsBinding.instance.addPostFrameCallback((_) {
-              /*Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(
-                  builder: (_) => BlocProvider(
-                    create: (context) => ProfileBloc(),
-                    child: const ProfileScreen(),
-                  ),
-                ),
-              );*/
-            });
           }
 
           return Form(

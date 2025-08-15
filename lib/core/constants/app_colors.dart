@@ -18,4 +18,7 @@ class AppColors {
 
   static const Color containerBackground = Color(0xFFFFFFFF);
   static const Color containerBorder = Color(0xFFE0E0E0);
+  static const Color brownButtonColor = Color(0xFF795548);
+  static const Color primaryTextColor = Colors.black;
+  static const Color inputBackground = Color(0xFFF5F5F5);
 }

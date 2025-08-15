@@ -144,4 +144,15 @@ class AppStrings {
   static const String maskedPassword = '********';
   static const String deleteAccountInstruction =
       'If you want to delete the account, click here.';
+  static const String errorOccurred = 'An error occurred: ';
+  static const String loading = 'Loading...';
+  static const String noProductsFound = 'No products match your search.';
+
+  static const String productAdded = "Product added";
+  static const String productAdditionFailed = "Product addition failed";
+  static const String productUpdated = "Product updated";
+  static const String productUpdateFailed = "Product update failed";
+  static const String productRemoved = "Product removed";
+  static const String productDeletionFailed = "Product deletion failed";
+  static const String imageUploadFailed = "Image upload failed: ";
 }
