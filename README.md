@@ -1,6 +1,4 @@
-![App Demo GIF](https://images2.imgbox.com/7b/b6/zHsnVYXg_o.gif)  
-[▶️ **Watch Full Demo Video Here**](https://thumbs2.imgbox.com/0d/e4/Dsb9cPuR_t.gif
-)# 🍽️ Relax - Restaurant App
+# 🍽️ Relax - Restaurant App
 
 **Relax** is a modern restaurant application built with **Flutter** and fully integrated with **Firebase** for authentication and data management.  
 It provides an intuitive interface for customers to order food and an admin panel to manage the restaurant menu.
@@ -40,7 +38,7 @@ It provides an intuitive interface for customers to order food and an admin pane
 
 ## 🎬 Demo Video
 
-![App Demo GIF](https://i.ibb.co/YOUR-GIF-LINK.gif)  
+![App Demo GIF](https://images2.imgbox.com/7b/b6/zHsnVYXg_o.gif)  
 [▶️ **Watch Full Demo Video Here**](https://thumbs2.imgbox.com/0d/e4/Dsb9cPuR_t.gif
 )
 
