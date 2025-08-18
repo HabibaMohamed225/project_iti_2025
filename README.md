@@ -1,14 +1,3 @@
-[Watch the live demo:  
-<video width="600" controls>
-  <source src="
-
-https://github.com/user-attachments/assets/9a9d1bbb-84ad-4975-a48c-fb1660377526](https://drive.google.com/file/d/1k786_km3N9AiTVMlDXAE78LwpVtzKegS/view?usp=sharing)
-
-" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
-
-> Replace `VIDEO_LINK.mp4` with the direct link from ImageBB.
 # 🍽️ Relax - Restaurant App
 
 **Relax** is a modern restaurant application built with **Flutter** and fully integrated with **Firebase** for authentication and data management.  
@@ -48,17 +37,11 @@ It provides an intuitive interface for customers to order food and an admin pane
 ---
 
 ## 🎬 Demo Video
-Watch the live demo:  
-<video width="600" controls>
-  <source src="
 
-https://github.com/user-attachments/assets/9a9d1bbb-84ad-4975-a48c-fb1660377526
+![App Demo GIF](https://i.ibb.co/YOUR-GIF-LINK.gif)  
+[▶️ **Watch Full Demo Video Here**]([https://drive.google.com/uc?export=download&id=YOUR_FILE_ID](https://drive.google.com/file/d/1k786_km3N9AiTVMlDXAE78LwpVtzKegS/view?usp=sharing))
 
-" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
-
-> Replace `VIDEO_LINK.mp4` with the direct link from ImageBB.
+> The GIF above is a short preview. Click the link to watch the full demo video on Google Drive.
 
 ---
 
@@ -71,19 +54,18 @@ https://github.com/user-attachments/assets/9a9d1bbb-84ad-4975-a48c-fb1660377526
 ![Cart Screen GIF](https://i.ibb.co/CART_SCREEN.gif)
 
 ### Admin Panel
-![Admin Panel GIF](https://i.ibb.co/ADMIN_PANEL.gif)<img width="510" height="817" alt="cart" src="https://github.com/user-attachments/assets/9cf8ba74-e86b-44a6-90ef-c578dd31ba49" />
-
+![Admin Panel GIF](https://i.ibb.co/ADMIN_PANEL.gif)
 
 > Replace GIF links with your own uploaded GIFs on ImageBB.
 
 ---
 
 ## 🛠️ Tech Stack
-- **Flutter** - UI development
-- **Firebase Authentication** - Login & Signup
-- **Firebase Firestore** - Data storage
-- **Bloc State Management** - State handling
-- **Dart** - Programming language
+- **Flutter** - UI development  
+- **Firebase Authentication** - Login & Signup  
+- **Firebase Firestore** - Data storage  
+- **Bloc State Management** - State handling  
+- **Dart** - Programming language  
 
 ---
 
@@ -182,4 +164,3 @@ analysis_options.yaml
 firebase.json
 pubspec.lock
 pubspec.yaml
-
