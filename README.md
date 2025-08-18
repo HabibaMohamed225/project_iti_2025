@@ -39,7 +39,8 @@ It provides an intuitive interface for customers to order food and an admin pane
 ## 🎬 Demo Video
 
 ![App Demo GIF](https://i.ibb.co/YOUR-GIF-LINK.gif)  
-[▶️ **Watch Full Demo Video Here**](https://thumbs2.imgbox.com/0d/e4/Dsb9cPuR_t.gif)
+[▶️ **Watch Full Demo Video Here**](https://thumbs2.imgbox.com/0d/e4/Dsb9cPuR_t.gif
+)
 
 > The GIF above is a short preview. Click the link to watch the full demo video on Google Drive.
 
