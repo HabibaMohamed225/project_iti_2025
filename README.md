@@ -1,16 +1,64 @@
 # project_iti_2025
 
-A new Flutter project.
+# 🍽️ Relax - Restaurant App
 
-## Getting Started
+**Relax** is a modern restaurant application built with **Flutter** and fully integrated with **Firebase**.  
+Team project by **Shorouk Nasser**, **Shadi Fathi**, and **Habiba Mohamed**.
 
-This project is a starting point for a Flutter application.
+---
 
-A few resources to get you started if this is your first Flutter project:
+## 🚀 Features
+(Admin & User features كما سبق)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+---
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 🎬 Demo Video
+Watch the live demo:  
+<video width="600" controls>
+  <source src="https://i.ibb.co/VIDEO_LINK.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+> Replace `VIDEO_LINK.mp4` with the direct link from ImageBB.
+
+---
+
+## 🖼️ Screenshots (Animated GIFs)
+
+### Home Screen
+![Home Screen GIF](https://i.ibb.co/HOME_SCREEN.gif)
+
+### Cart Screen
+![Cart Screen GIF](https://i.ibb.co/CART_SCREEN.gif)
+
+### Admin Panel
+![Admin Panel GIF](https://i.ibb.co/ADMIN_PANEL.gif)
+
+> Replace GIF links with your own uploaded GIFs on ImageBB.
+
+---
+
+## 🛠️ Tech Stack
+- Flutter
+- Firebase Auth
+- Firebase Firestore
+- Bloc State Management
+- Dart
+
+---
+
+## 📂 Project Structure
+(lib structure مع كل الملفات كما سبق)
+
+---
+
+## 💡 Notes
+1. Team project by **Shorouk Nasser**, **Shadi Fathi**, **Habiba Mohamed**.  
+2. GIFs and video hosted on [ImageBB](https://imgbb.com/) for GitHub display.  
+3. Project ready for Android & iOS deployment.
+
+---
+
+## 📌 Useful Links
+- [Firebase Console](https://console.firebase.google.com/)  
+- [ImageBB](https://imgbb.com/) for image/video hosting
