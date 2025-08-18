@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:project_iti_2025/blocs/home/menu_bloc.dart';
 import 'package:project_iti_2025/core/constants/app_colors.dart';
-
+import 'package:project_iti_2025/core/constants/app_strings.dart';
 import 'package:project_iti_2025/blocs/cart/cart_bloc.dart';
 import 'package:project_iti_2025/blocs/cart/cart_event.dart';
 import 'package:project_iti_2025/data/models/cart_item.dart';
+import 'package:project_iti_2025/presentation/widgets/custom_text_field.dart';
+import 'package:project_iti_2025/presentation/widgets/shared_card.dart';
 
 class HomeScreenContent extends StatefulWidget {
   const HomeScreenContent({super.key});
@@ -16,7 +18,23 @@ class HomeScreenContent extends StatefulWidget {
 
 class _HomeScreenContentState extends State<HomeScreenContent> {
   String searchQuery = "";
-  final Set<String> favoriteItems = {};
+  final TextEditingController _searchCtrl = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+    _searchCtrl.addListener(() {
+      setState(() {
+        searchQuery = _searchCtrl.text.toLowerCase();
+      });
+    });
+  }
+
+  @override
+  void dispose() {
+    _searchCtrl.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -36,11 +54,11 @@ class _HomeScreenContentState extends State<HomeScreenContent> {
               const Expanded(
                 child: Center(
                   child: Text(
-                    'Welcome to Relax restaurant',
+                    AppStrings.welcomeMessage,
                     style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
-                      color: Color.fromARGB(181, 141, 74, 11),
+                      color: AppColors.brownButtonColor,
                     ),
                   ),
                 ),
@@ -48,25 +66,17 @@ class _HomeScreenContentState extends State<HomeScreenContent> {
               const SizedBox(width: 40),
             ],
           ),
+
           const SizedBox(height: 12),
-          TextField(
-            decoration: InputDecoration(
-              hintText: "Search...",
-              prefixIcon: const Icon(Icons.search),
-              filled: true,
-              fillColor: AppColors.inputBackground,
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(12),
-                borderSide: BorderSide.none,
-              ),
-            ),
-            onChanged: (value) {
-              setState(() {
-                searchQuery = value.toLowerCase();
-              });
-            },
+          CustomTextFormField(
+            controller: _searchCtrl,
+            hintText: AppStrings.searchMenuItems,
+            labelText: AppStrings.searchMenuItems,
+            prefixIcon: Icons.search,
           ),
+
           const SizedBox(height: 16),
+
           Expanded(
             child: BlocBuilder<MenuBloc, MenuState>(
               builder: (context, state) {
@@ -78,7 +88,7 @@ class _HomeScreenContentState extends State<HomeScreenContent> {
                   return Center(
                     child: Text(
                       state.message,
-                      style: const TextStyle(color: Colors.red),
+                      style: const TextStyle(color: AppColors.red),
                     ),
                   );
                 }
@@ -93,13 +103,14 @@ class _HomeScreenContentState extends State<HomeScreenContent> {
                   }).toList();
 
                   if (filteredItems.isEmpty) {
-                    return const Center(child: Text("No items found"));
+                    return const Center(
+                      child: Text(AppStrings.noProductsFound),
+                    );
                   }
 
                   return GridView.builder(
                     padding: const EdgeInsets.only(bottom: 60),
-                    gridDelegate:
-                        const SliverGridDelegateWithFixedCrossAxisCount(
+                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2,
                       childAspectRatio: 0.7,
                       crossAxisSpacing: 11,
@@ -108,40 +119,36 @@ class _HomeScreenContentState extends State<HomeScreenContent> {
                     itemCount: filteredItems.length,
                     itemBuilder: (context, index) {
                       final item = filteredItems[index];
-                      final isFavorite = favoriteItems.contains(item['name']);
 
-                      return Container(
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(16),
-                          boxShadow: const [
-                            BoxShadow(
-                              color: Colors.black12,
-                              blurRadius: 4,
-                              offset: Offset(0, 2),
-                            )
-                          ],
-                        ),
+                      return SharedCard(
+                        padding: EdgeInsets.zero,
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            ClipRRect(
-                              borderRadius: const BorderRadius.vertical(
-                                top: Radius.circular(16),
-                              ),
-                              child: Image.network(
-                                item['imageUrl'],
-                                height: 140,
-                                width: double.infinity,
-                                fit: BoxFit.cover,
-                                errorBuilder: (_, __, ___) => Container(
-                                  height: 140,
-                                  color: Colors.grey[200],
-                                  alignment: Alignment.center,
-                                  child: const Icon(Icons.image_not_supported),
+                            Container(
+                              height: 140,
+                              width: double.infinity,
+                              decoration: BoxDecoration(
+                                borderRadius: const BorderRadius.vertical(
+                                  top: Radius.circular(12),
                                 ),
+                                image: item['imageUrl'] != null &&
+                                        item['imageUrl'].toString().isNotEmpty
+                                    ? DecorationImage(
+                                        image:
+                                            NetworkImage(item['imageUrl'] ?? ''),
+                                        fit: BoxFit.cover,
+                                      )
+                                    : null,
+                                color: AppColors.mediumGrey,
                               ),
+                              alignment: Alignment.center,
+                              child: (item['imageUrl'] == null ||
+                                      item['imageUrl'].toString().isEmpty)
+                                  ? const Icon(Icons.image_not_supported)
+                                  : null,
                             ),
+
                             Padding(
                               padding: const EdgeInsets.symmetric(
                                   horizontal: 8, vertical: 6),
@@ -155,7 +162,7 @@ class _HomeScreenContentState extends State<HomeScreenContent> {
                                           CrossAxisAlignment.start,
                                       children: [
                                         Text(
-                                          item['name'],
+                                          item['name'] ?? '',
                                           style: const TextStyle(
                                             fontWeight: FontWeight.bold,
                                             fontSize: 16,
@@ -165,91 +172,75 @@ class _HomeScreenContentState extends State<HomeScreenContent> {
                                         const SizedBox(height: 4),
                                         Text(
                                           item['description'] ?? '',
-                                          style: TextStyle(
+                                          style: const TextStyle(
                                             fontSize: 12,
-                                            color: Colors.grey[700],
+                                            color: AppColors.darkGrey,
                                           ),
                                           maxLines: 2,
                                           overflow: TextOverflow.ellipsis,
                                         ),
+                                        const SizedBox(height: 6),
+                                        Text(
+                                          "\$${item['price']}",
+                                          style: const TextStyle(
+                                            color: AppColors.primaryButtonColor,
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 14,
+                                          ),
+                                        ),
                                       ],
                                     ),
                                   ),
-                                  Row(
-                                    children: [
-                                      IconButton(
-                                        padding: EdgeInsets.zero,
-                                        constraints: const BoxConstraints(),
-                                        icon: Icon(
-                                          isFavorite
-                                              ? Icons.star
-                                              : Icons.star_border,
+                                  IconButton(
+                                    padding: EdgeInsets.zero,
+                                    constraints: const BoxConstraints(),
+                                    icon: const Icon(
+                                      Icons.add_circle,
+                                      color: AppColors.primaryButtonColor,
+                                      size: 22,
+                                    ),
+                                    onPressed: () {
+                                      final productId = item['id']?.toString();
+                                      if (productId == null || productId.isEmpty) {
+                                        ScaffoldMessenger.of(context).showSnackBar(
+                                          const SnackBar(
+                                            content: Text(
+                                                'خطأ: المنتج ليس له معرف (ID)!'),
+                                          ),
+                                        );
+                                        return;
+                                      }
+
+                                      final cartItem = CartItem(
+                                        id: productId,
+                                        name: (item['name'] ?? 'منتج بدون اسم')
+                                            .toString(),
+                                        price: double.tryParse(
+                                                item['price']?.toString() ??
+                                                    '0') ??
+                                            0.0,
+                                        quantity: 1,
+                                        imageUrl: item['imageUrl']?.toString(),
+                                        description:
+                                            item['description']?.toString(),
+                                      );
+
+                                      context
+                                          .read<CartBloc>()
+                                          .add(AddToCart(cartItem));
+
+                                      ScaffoldMessenger.of(context)
+                                          .removeCurrentSnackBar();
+                                      ScaffoldMessenger.of(context).showSnackBar(
+                                        SnackBar(
+                                          content: Text(
+                                            '${cartItem.name} ${AppStrings.productAdded}',
+                                          ),
                                         ),
-                                        color: AppColors.primaryButtonColor,
-                                        iconSize: 20,
-                                        onPressed: () {
-                                          setState(() {
-                                            if (isFavorite) {
-                                              favoriteItems
-                                                  .remove(item['name']);
-                                            } else {
-                                              favoriteItems.add(item['name']);
-                                            }
-                                          });
-                                        },
-                                      ),
-                                      IconButton(
-                                        padding: EdgeInsets.zero,
-                                        constraints: const BoxConstraints(),
-                                        icon: const Icon(Icons.add_circle,
-                                            color: AppColors.primaryButtonColor,
-                                            size: 22),
-                                        onPressed: () {
-                                          final cartItem = CartItem(
-                                            id: (item['id'] ?? item['name'])
-                                                .toString(),
-                                            name:
-                                                (item['name'] ?? '').toString(),
-                                            price: double.tryParse(
-                                                    item['price']?.toString() ??
-                                                        '0') ??
-                                                0.0,
-                                            quantity: 1,
-                                            imageUrl:
-                                                item['imageUrl']?.toString(),
-                                            description:
-                                                item['description']?.toString(),
-                                          );
-
-                                          context
-                                              .read<CartBloc>()
-                                              .add(AddToCart(cartItem));
-
-                                          ScaffoldMessenger.of(context)
-                                              .removeCurrentSnackBar();
-                                          ScaffoldMessenger.of(context)
-                                              .showSnackBar(
-                                            SnackBar(
-                                                content: Text(
-                                                    '${item['name']} added to cart')),
-                                          );
-                                        },
-                                      ),
-                                    ],
+                                      );
+                                    },
                                   ),
                                 ],
-                              ),
-                            ),
-                            Padding(
-                              padding:
-                                  const EdgeInsets.symmetric(horizontal: 8),
-                              child: Text(
-                                "\$${item['price']}",
-                                style: const TextStyle(
-                                  color: AppColors.primaryButtonColor,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 14,
-                                ),
                               ),
                             ),
                           ],

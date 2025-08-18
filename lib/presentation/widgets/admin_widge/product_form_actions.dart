@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
@@ -67,55 +66,45 @@ class ProductFormActions extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<ProductBloc, ProductState>(
-      buildWhen: (previous, current) =>
-          current is ProductUploadingImageState ||
-          current is ProductInitialState,
-      builder: (context, state) {
-        final uploadingNow = state is ProductUploadingImageState;
-
-        return Row(
-          children: [
-            Expanded(
-              child: PrimaryButton(
-                text: uploadingNow ? "Uploading..." : "Upload Image",
-                onPressed: uploadingNow
-                    ? () {}
-                    : () async {
-                        final productBloc = context.read<ProductBloc>();
-                        final pickedFile = await _pickImage();
-                        if (pickedFile != null) {
-                          productBloc.add(UploadImageEvent(pickedFile));
-                        }
-                      },
-                isLoading: uploadingNow,
-                icon: const Icon(Icons.image,
-                    size: 20, color: AppColors.containerBorder),
-              ),
-            ),
-            const SizedBox(width: 10),
-            Expanded(
-              child: PrimaryButton(
-                text: AppStrings.saveChanges,
-                onPressed: () => _submitForm(context),
-              ),
-            ),
-            const SizedBox(width: 10),
-            Expanded(
-              child: OutlinedButton(
-                onPressed: uploadingNow
-                    ? () {
-                        context.read<ProductBloc>().add(CancelUploadEvent());
+    return Row(
+      children: [
+        Expanded(
+          child: PrimaryButton(
+            text: isUploading ? "Uploading..." : "Upload Image",
+            onPressed: isUploading
+                ? () {}
+                : () async {
+                    final pickedFile = await _pickImage();
+                    if (pickedFile != null) {
+                      if (context.mounted) {
+                        context
+                            .read<ProductBloc>()
+                            .add(UploadImageEvent(pickedFile));
                       }
-                    : () {
-                        Navigator.of(context).pop();
-                      },
-                child: Text(uploadingNow ? "Cancel Upload" : AppStrings.cancel),
-              ),
-            ),
-          ],
-        );
-      },
+                    }
+                  },
+            isLoading: isUploading,
+            icon: const Icon(Icons.image,
+                size: 20, color: AppColors.containerBorder),
+          ),
+        ),
+        const SizedBox(width: 10),
+        Expanded(
+          child: PrimaryButton(
+            text: AppStrings.saveChanges,
+            onPressed: () => _submitForm(context),
+          ),
+        ),
+        const SizedBox(width: 10),
+        Expanded(
+          child: OutlinedButton(
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+            child: const Text(AppStrings.cancel),
+          ),
+        ),
+      ],
     );
   }
 }

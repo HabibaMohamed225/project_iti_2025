@@ -12,23 +12,25 @@ class CartScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context).textTheme;
+
     return Scaffold(
       appBar: AppBar(
         title: BlocBuilder<CartBloc, CartState>(
           builder: (context, state) {
-            return Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            return Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
+                Text(
                   AppStrings.yourCart,
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  style: theme.titleLarge?.copyWith(
+                    color: AppColors.primaryTextColor,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
                 Text(
-                  '${state.itemCount} items',
-                  style: const TextStyle(
-                    fontSize: 14,
-                    color: AppColors.darkGrey,
-                  ),
+                  "Items: ${state.itemCount}",
+                  style: theme.bodySmall?.copyWith(color: AppColors.darkGrey),
                 ),
               ],
             );
