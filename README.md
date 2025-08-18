@@ -1,3 +1,14 @@
+Watch the live demo:  
+<video width="600" controls>
+  <source src="
+
+https://github.com/user-attachments/assets/9a9d1bbb-84ad-4975-a48c-fb1660377526
+
+" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+> Replace `VIDEO_LINK.mp4` with the direct link from ImageBB.
 # 🍽️ Relax - Restaurant App
 
 **Relax** is a modern restaurant application built with **Flutter** and fully integrated with **Firebase** for authentication and data management.  
