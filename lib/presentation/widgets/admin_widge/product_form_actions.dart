@@ -74,13 +74,10 @@ class ProductFormActions extends StatelessWidget {
             onPressed: isUploading
                 ? () {}
                 : () async {
+                    final productBloc = context.read<ProductBloc>();
                     final pickedFile = await _pickImage();
                     if (pickedFile != null) {
-                      if (context.mounted) {
-                        context
-                            .read<ProductBloc>()
-                            .add(UploadImageEvent(pickedFile));
-                      }
+                      productBloc.add(UploadImageEvent(pickedFile));
                     }
                   },
             isLoading: isUploading,

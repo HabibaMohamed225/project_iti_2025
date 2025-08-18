@@ -40,10 +40,11 @@ class _LoginScreenContentState extends State<LoginScreenContent> {
         }
 
         if (state is LoginRedirectToAdminState) {
-          Navigator.pushReplacement(
+          Navigator.push(
             context,
             MaterialPageRoute(builder: (context) => const AdminProductsPage()),
           );
+
           return;
         }
 

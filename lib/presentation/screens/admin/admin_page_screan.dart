@@ -4,6 +4,7 @@ import 'package:project_iti_2025/blocs/admin/admin_bloc.dart';
 import 'package:project_iti_2025/core/constants/app_strings.dart';
 import 'package:project_iti_2025/presentation/screens/admin/admin_add_screan.dart';
 import 'package:project_iti_2025/presentation/screens/admin/admin_page_screan_content.dart';
+import 'package:project_iti_2025/presentation/screens/login/login_screen_conent.dart';
 
 class AdminProductsPage extends StatefulWidget {
   const AdminProductsPage({super.key});
@@ -28,10 +29,18 @@ class _AdminProductsPageState extends State<AdminProductsPage> {
           style: theme.textTheme.headlineMedium,
         ),
         backgroundColor: theme.appBarTheme.backgroundColor,
-        leading: Icon(
-          Icons.admin_panel_settings,
-          size: 40,
-          color: theme.appBarTheme.iconTheme?.color,
+        leading: IconButton(
+          icon: Icon(
+            Icons.admin_panel_settings,
+            size: 40,
+            color: theme.appBarTheme.iconTheme?.color,
+          ),
+          onPressed: () {
+            Navigator.pop(
+              context,
+              MaterialPageRoute(builder: (_) => const LoginScreenContent()),
+            );
+          },
         ),
       ),
       body: AdminProductsScreenContent(

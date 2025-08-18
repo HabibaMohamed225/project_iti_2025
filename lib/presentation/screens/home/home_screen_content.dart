@@ -66,7 +66,6 @@ class _HomeScreenContentState extends State<HomeScreenContent> {
               const SizedBox(width: 40),
             ],
           ),
-
           const SizedBox(height: 12),
           CustomTextFormField(
             controller: _searchCtrl,
@@ -74,9 +73,7 @@ class _HomeScreenContentState extends State<HomeScreenContent> {
             labelText: AppStrings.searchMenuItems,
             prefixIcon: Icons.search,
           ),
-
           const SizedBox(height: 16),
-
           Expanded(
             child: BlocBuilder<MenuBloc, MenuState>(
               builder: (context, state) {
@@ -110,7 +107,8 @@ class _HomeScreenContentState extends State<HomeScreenContent> {
 
                   return GridView.builder(
                     padding: const EdgeInsets.only(bottom: 60),
-                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2,
                       childAspectRatio: 0.7,
                       crossAxisSpacing: 11,
@@ -135,8 +133,8 @@ class _HomeScreenContentState extends State<HomeScreenContent> {
                                 image: item['imageUrl'] != null &&
                                         item['imageUrl'].toString().isNotEmpty
                                     ? DecorationImage(
-                                        image:
-                                            NetworkImage(item['imageUrl'] ?? ''),
+                                        image: NetworkImage(
+                                            item['imageUrl'] ?? ''),
                                         fit: BoxFit.cover,
                                       )
                                     : null,
@@ -148,7 +146,6 @@ class _HomeScreenContentState extends State<HomeScreenContent> {
                                   ? const Icon(Icons.image_not_supported)
                                   : null,
                             ),
-
                             Padding(
                               padding: const EdgeInsets.symmetric(
                                   horizontal: 8, vertical: 6),
@@ -201,8 +198,10 @@ class _HomeScreenContentState extends State<HomeScreenContent> {
                                     ),
                                     onPressed: () {
                                       final productId = item['id']?.toString();
-                                      if (productId == null || productId.isEmpty) {
-                                        ScaffoldMessenger.of(context).showSnackBar(
+                                      if (productId == null ||
+                                          productId.isEmpty) {
+                                        ScaffoldMessenger.of(context)
+                                            .showSnackBar(
                                           const SnackBar(
                                             content: Text(
                                                 'خطأ: المنتج ليس له معرف (ID)!'),
@@ -231,7 +230,8 @@ class _HomeScreenContentState extends State<HomeScreenContent> {
 
                                       ScaffoldMessenger.of(context)
                                           .removeCurrentSnackBar();
-                                      ScaffoldMessenger.of(context).showSnackBar(
+                                      ScaffoldMessenger.of(context)
+                                          .showSnackBar(
                                         SnackBar(
                                           content: Text(
                                             '${cartItem.name} ${AppStrings.productAdded}',

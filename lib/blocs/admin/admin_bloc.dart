@@ -128,9 +128,9 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
     emit(ProductInitialState());
   }
 
-  @override
-  Future<void> close() {
-    _productsSubscription?.cancel();
-    return super.close();
-  }
+  // @override
+  // Future<void> close() {
+  //   _productsSubscription?.cancel();
+  //   return super.close();
+  // }
 }
