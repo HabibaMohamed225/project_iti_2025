@@ -111,16 +111,9 @@ class AppStrings {
   static const String avgPrice = 'Avg Price';
   static const String menuManagement = 'Menu Management';
   static const String searchMenuItems = 'Search menu items...';
-  static const String pizza = 'Pizza';
-  static const String salads = 'Salads';
-  static const String desserts = 'Desserts';
-  static const String burgers = 'Burgers';
   static const String mainCourses = 'Main Courses';
   static const String quickActions = 'Quick Actions';
-  static const String addNowItem = 'Add New Item';
-  static const String viewAllItems = 'View All Items';
   static const String refreshData = 'Refresh Data';
-
   static const String editMenuItem = 'Edit Menu Item';
   static const String updateDetails =
       'Update the details for "Margherita Pizza"';
@@ -141,7 +134,7 @@ class AppStrings {
   static const String saveChanges = 'Save Changes';
   static const String noUsername = 'No username';
   static const String noEmail = 'No email';
-  static const String maskedPassword = '********';
+  static const String maskedPassword = '******';
   static const String deleteAccountInstruction =
       'If you want to delete the account, click here.';
   static const String errorOccurred = 'An error occurred: ';
@@ -155,4 +148,7 @@ class AppStrings {
   static const String productRemoved = "Product removed";
   static const String productDeletionFailed = "Product deletion failed";
   static const String imageUploadFailed = "Image upload failed: ";
+  static const String welcomeMessage = "Welcome to Relax restaurant";
+  static const String searchHint = "Search...";
+  static const String noItemsFound = "No items found";
 }

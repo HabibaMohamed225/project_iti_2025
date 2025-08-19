@@ -12,8 +12,6 @@ class RemoveFromCart extends CartEvent {
   RemoveFromCart(this.id);
 }
 
-class ClearCart extends CartEvent {}
-
 class IncrementItem extends CartEvent {
   final String id;
   IncrementItem(this.id);

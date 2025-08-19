@@ -95,7 +95,18 @@ class _DeliveryFormState extends State<DeliveryForm> {
                 prefixIcon: Icon(Icons.phone),
               ),
               keyboardType: TextInputType.phone,
-              validator: (v) => v == null || v.isEmpty ? 'Required' : null,
+              //validator: (v) => v == null || v.isEmpty ? 'Required' : null,
+              validator: (v) {
+                if (v == null || v.isEmpty) {
+                  return 'Required';
+                }
+                final regex =
+                    RegExp(r'^[0-9]+$'); // ✅ تحقق أن الإدخال كله أرقام
+                if (!regex.hasMatch(v)) {
+                  return 'Phone number must contain digits only';
+                }
+                return null;
+              },
             ),
             const SizedBox(height: 12),
             const Text('Street Address',
@@ -128,7 +139,7 @@ class _DeliveryFormState extends State<DeliveryForm> {
               decoration: const InputDecoration(
                 hintText: 'Any notes...',
                 border: OutlineInputBorder(),
-                prefixIcon: Icon(Icons.note),
+                //prefixIcon: Icon(Icons.note),
               ),
               maxLines: 4,
             ),

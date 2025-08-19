@@ -9,4 +9,4 @@ class LoadProfile extends ProfileEvent {}
 
 class LogoutRequested extends ProfileEvent {}
 
-class DeleteAccountRequested extends ProfileEvent {}
+//class DeleteAccountRequested extends ProfileEvent {}

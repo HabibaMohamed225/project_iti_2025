@@ -9,7 +9,7 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
   ProfileBloc() : super(ProfileInitial()) {
     on<LoadProfile>(_onLoadProfile);
     on<LogoutRequested>(_onLogoutRequested);
-    on<DeleteAccountRequested>(_onDeleteAccountRequested);
+    //on<DeleteAccountRequested>(_onDeleteAccountRequested);
   }
 
   Future<void> _onLoadProfile(
@@ -56,7 +56,7 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
     }
   }
 
-  Future<void> _onDeleteAccountRequested(
+  /*Future<void> _onDeleteAccountRequested(
       DeleteAccountRequested event, Emitter<ProfileState> emit) async {
     emit(ProfileLoading());
     try {
@@ -77,5 +77,5 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
     } catch (e) {
       emit(ProfileError('Failed to delete account: ${e.toString()}'));
     }
-  }
+  }*/
 }
