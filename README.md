@@ -40,7 +40,7 @@ It provides an intuitive interface for customers to order food and an admin pane
 
 ## 🎬 Demo Video (Preview + Full)
 
-![Demo Video](https://i.ibb.co/DfmMwtv4/fianal2.gif)
+[![Demo Video](https://i.ibb.co/DfmMwtv4/fianal2.gif)](https://i.ibb.co/DfmMwtv4/fianal2.gif)
 
 > The GIF above is a short preview. Click the link to watch the full demo video.
 
