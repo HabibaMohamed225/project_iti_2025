@@ -3,6 +3,7 @@
 [![Flutter](https://img.shields.io/badge/Flutter-Framework-blue)](https://flutter.dev/)
 [![Firebase](https://img.shields.io/badge/Firebase-Backend-orange)](https://firebase.google.com/)
 [![Dart](https://img.shields.io/badge/Dart-Language-blue)](https://dart.dev/)
+![App Demo GIF](https://images2.imgbox.com/73/bf/dJwUGt3r_o.gif)
 
 **Relax** is a modern restaurant application built with **Flutter** and fully integrated with **Firebase** for authentication and data management.  
 It provides an intuitive interface for customers to order food and an admin panel to manage the restaurant menu.
