@@ -49,19 +49,6 @@ It provides an intuitive interface for customers to order food and an admin pane
 
 ## 🖼️ Screenshots (Animated GIFs)
 
-> **Replace these placeholders with your own uploaded GIFs from ImgBB or ImgBox (direct `.gif` links).**
-
-### Home Screen  
-![Home Screen GIF](https://i.ibb.co/DfmMwtv4/fianal2.gif)  
-
-### Cart Screen  
-![Cart Screen GIF](https://your-direct-link-cart.gif)  
-
-### Admin Panel  
-![Admin Panel GIF](https://your-direct-link-admin.gif)  
-
----
-
 ## 🛠️ Tech Stack
 - **Flutter** – UI development  
 - **Firebase Authentication** – Login & Signup  
