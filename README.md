@@ -11,7 +11,7 @@ It provides an intuitive interface for customers to order food and an admin pane
 
 ---
 ## 🎬 Live Demo
-![App Demo GIF](https://images2.imgbox.com/7b/b6/zHsnVYXg_o.gif)  
+![App Demo GIF](https://imgbox.com/WN86ms08)  
 
 ## 🚀 Features
 
