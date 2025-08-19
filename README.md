@@ -48,7 +48,8 @@ It provides an intuitive interface for customers to order food and an admin pane
 ## 🎬 Demo Video (Preview + Full)
 
 https://images2.imgbox.com/f2/38/PGwXAAwY_o.gif
-[▶️ **Watch Full Demo Video Here**](https://sendvid.com/no3cj6tw)
+[▶️ **Watch Full Demo Video Here**](https://images2.imgbox.com/f2/38/PGwXAAwY_o.gif
+)
 
 > The GIF above is a short preview. Click the link to watch the full demo video.
 
