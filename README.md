@@ -1,5 +1,4 @@
 # 🍽️ Relax - Restaurant App
-![Demo](https://images2.imgbox.com/73/bf/dJwUGt3r_o.gif)
 
 [![Flutter](https://img.shields.io/badge/Flutter-Framework-blue)](https://flutter.dev/)
 [![Firebase](https://img.shields.io/badge/Firebase-Backend-orange)](https://firebase.google.com/)
@@ -50,7 +49,8 @@ It provides an intuitive interface for customers to order food and an admin pane
 
 ## 🎬 Demo Video (Preview + Full)
 
-![App Demo GIF](https://images2.imgbox.com/7b/b6/zHsnVYXg_o.gif)  
+![Demo](https://images2.imgbox.com/73/bf/dJwUGt3r_o.gif)
+
 [▶️ **Watch Full Demo Video Here**](https://sendvid.com/no3cj6tw)
 
 > The GIF above is a short preview. Click the link to watch the full demo video.
