@@ -1,4 +1,5 @@
 # 🍽️ Relax - Restaurant App
+![Demo](https://images2.imgbox.com/73/bf/dJwUGt3r_o.gif)
 
 [![Flutter](https://img.shields.io/badge/Flutter-Framework-blue)](https://flutter.dev/)
 [![Firebase](https://img.shields.io/badge/Firebase-Backend-orange)](https://firebase.google.com/)
