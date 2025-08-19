@@ -13,7 +13,7 @@ It provides an intuitive interface for customers to order food and an admin pane
 
 ## 🎬 Live Demo
 
-[![Watch the video](https://images2.imgbox.com/73/bf/dJwUGt3r_o.gif)](https://sendvid.com/no3cj6tw)
+![App Demo GIF](https://images2.imgbox.com/73/bf/dJwUGt3r_o.gif)
 
 
 ---
