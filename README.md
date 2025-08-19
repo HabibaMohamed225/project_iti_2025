@@ -7,6 +7,7 @@
 It provides an intuitive interface for customers to order food and an admin panel to manage the restaurant menu.
 
 > 💡 Developed as a **team project** by **Shorouk Nasser**, **Shadya Fathi**, and **Habiba Mohamed**.
+![Demo](https://images2.imgbox.com/92/b3/H8KnafHi_o.gif)
 
 ---
 ## 🎬 Live Demo
