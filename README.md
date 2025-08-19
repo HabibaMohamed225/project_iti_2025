@@ -47,6 +47,7 @@ It provides an intuitive interface for customers to order food and an admin pane
 ---
 
 ## 🖼️ Screenshots (Animated GIFs)
+[![Watch Demo](https://i.ibb.co/some-thumbnail.png)](https://i.ibb.co/DfmMwtv4/fianal2.gif)
 
 ## 🛠️ Tech Stack
 - **Flutter** – UI development  
