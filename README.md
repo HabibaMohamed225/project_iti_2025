@@ -37,15 +37,6 @@ It provides an intuitive interface for customers to order food and an admin pane
    - Display order confirmation message.
 
 ---
-
-## 🎬 Demo Video (Preview + Full)
-
-[![Demo Video](https://i.ibb.co/DfmMwtv4/fianal2.gif)](https://i.ibb.co/DfmMwtv4/fianal2.gif)
-
-> The GIF above is a short preview. Click the link to watch the full demo video.
-
----
-
 ## 🖼️ Screenshots (Animated GIFs)
 [![Watch Demo](https://i.ibb.co/some-thumbnail.png)](https://i.ibb.co/DfmMwtv4/fianal2.gif)
 
