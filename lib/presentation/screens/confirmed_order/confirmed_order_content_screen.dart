@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project_iti_2025/core/constants/app_colors.dart';
 import 'package:project_iti_2025/core/constants/app_strings.dart';
-import 'package:project_iti_2025/presentation/widgets/primary_botton.dart';
 import 'package:project_iti_2025/presentation/widgets/shared_card.dart';
 import 'package:project_iti_2025/blocs/confirmed_order/confirmed_order_state.dart';
 
@@ -34,12 +33,6 @@ class ConfirmedOrderContent extends StatelessWidget {
                     ),
               ),
               const SizedBox(height: 4),
-              Text(
-                '${AppStrings.orderDetails} • ID: ${state.orderId ?? '-'} • ${state.orderStatus ?? ''}',
-                style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                      color: AppColors.darkGrey,
-                    ),
-              ),
             ],
           ),
         ),
@@ -145,15 +138,6 @@ class ConfirmedOrderContent extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 16),
-        PrimaryButton(
-          text: AppStrings.backToHome,
-          onPressed: () {
-            Navigator.of(context).pushNamedAndRemoveUntil(
-              '/home',
-              (route) => false,
-            );
-          },
-        ),
         const SizedBox(height: 24),
       ],
     );

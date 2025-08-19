@@ -10,8 +10,7 @@ class CartBloc extends Bloc<CartEvent, CartState> {
       final idx = updated.indexWhere((e) => e.id == event.item.id);
       if (idx >= 0) {
         final ex = updated[idx];
-        updated[idx] =
-            ex.copyWith(quantity: ex.quantity + event.item.quantity);
+        updated[idx] = ex.copyWith(quantity: ex.quantity + event.item.quantity);
       } else {
         updated.add(event.item);
       }
@@ -19,12 +18,9 @@ class CartBloc extends Bloc<CartEvent, CartState> {
     });
 
     on<RemoveFromCart>((event, emit) {
-      final updated =
-          state.items.where((item) => item.id != event.id).toList();
+      final updated = state.items.where((item) => item.id != event.id).toList();
       emit(state.copyWith(items: updated));
     });
-
-    on<ClearCart>((event, emit) => emit(const CartState(items: [])));
 
     on<IncrementItem>((event, emit) {
       final updated = state.items.map((e) {

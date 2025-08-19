@@ -6,9 +6,6 @@ class ConfirmedOrderState extends Equatable {
   final bool isLoading;
   final String? error;
 
-  final String? orderId;
-  final String? orderStatus;
-
   final List<CartItem> items;
   final int itemCount;
   final double subtotal;
@@ -23,8 +20,6 @@ class ConfirmedOrderState extends Equatable {
   const ConfirmedOrderState({
     this.isLoading = false,
     this.error,
-    this.orderId,
-    this.orderStatus,
     this.items = const [],
     this.itemCount = 0,
     this.subtotal = 0,
@@ -39,8 +34,6 @@ class ConfirmedOrderState extends Equatable {
   ConfirmedOrderState copyWith({
     bool? isLoading,
     String? error,
-    String? orderId,
-    String? orderStatus,
     List<CartItem>? items,
     int? itemCount,
     double? subtotal,
@@ -54,8 +47,6 @@ class ConfirmedOrderState extends Equatable {
     return ConfirmedOrderState(
       isLoading: isLoading ?? this.isLoading,
       error: error,
-      orderId: orderId ?? this.orderId,
-      orderStatus: orderStatus ?? this.orderStatus,
       items: items ?? this.items,
       itemCount: itemCount ?? this.itemCount,
       subtotal: subtotal ?? this.subtotal,
@@ -72,8 +63,6 @@ class ConfirmedOrderState extends Equatable {
   List<Object?> get props => [
         isLoading,
         error,
-        orderId,
-        orderStatus,
         items,
         itemCount,
         subtotal,

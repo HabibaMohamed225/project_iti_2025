@@ -9,7 +9,6 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
   ProfileBloc() : super(ProfileInitial()) {
     on<LoadProfile>(_onLoadProfile);
     on<LogoutRequested>(_onLogoutRequested);
-    on<DeleteAccountRequested>(_onDeleteAccountRequested);
   }
 
   Future<void> _onLoadProfile(
@@ -40,29 +39,6 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
       final user = _auth.currentUser;
       if (user == null) {
         emit(ProfileError('No user is currently signed in.'));
-        return;
-      }
-      await user.delete();
-      emit(ProfileActionSuccess('Account deleted successfully.'));
-    } on FirebaseAuthException catch (e) {
-      if (e.code == 'requires-recent-login') {
-        emit(ProfileError(
-            'This action requires recent authentication. Please sign in again and try.'));
-      } else {
-        emit(ProfileError('Failed to delete account: ${e.message}'));
-      }
-    } catch (e) {
-      emit(ProfileError('Failed to delete account: ${e.toString()}'));
-    }
-  }
-
-  Future<void> _onDeleteAccountRequested(
-      DeleteAccountRequested event, Emitter<ProfileState> emit) async {
-    emit(ProfileLoading());
-    try {
-      final user = _auth.currentUser;
-      if (user == null) {
-        emit(ProfileError('No user to delete.'));
         return;
       }
       await user.delete();

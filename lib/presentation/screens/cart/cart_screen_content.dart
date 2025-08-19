@@ -15,52 +15,61 @@ class CartScreenContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context).textTheme;
-
     return BlocBuilder<CartBloc, CartState>(
       builder: (context, state) {
         if (state.items.isEmpty) {
-          return Center(
-            child: Text(
-              AppStrings.backToCart,
-              style: theme.bodyMedium?.copyWith(
-                color: AppColors.darkGrey,
-                fontSize: 16,
-              ),
-            ),
-          );
+          return const Center(child: Text('Your cart is empty'));
         }
 
         return ListView(
           padding: const EdgeInsets.all(16),
           children: [
+            const SizedBox(height: 12),
             ...state.items.map((e) => Padding(
                   padding: const EdgeInsets.only(bottom: 10),
                   child: CartItemTile(item: e),
                 )),
-            const SizedBox(height: 16),
+            const SizedBox(height: 12),
             SharedCard(
               padding: const EdgeInsets.all(16),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  Text(
+                  const Text(
                     AppStrings.orderSummary,
-                    style: theme.titleMedium?.copyWith(
+                    style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      color: AppColors.primaryTextColor,
+                      fontSize: 18,
                     ),
                   ),
                   const SizedBox(height: 12),
-                  _row(theme, "${AppStrings.subtotal} (${state.itemCount} items)", "\$${_money(state.subtotal)}"),
-                  _row(theme, AppStrings.deliveryFee, state.items.isEmpty ? "\$0.00" : "\$${_money(CartState.deliveryFee)}"),
-                  _row(theme, AppStrings.tax, "\$${_money(state.tax)}"),
+                  _SummaryRow(
+                    label: '${AppStrings.subtotal} (${state.itemCount} items)',
+                    value: '\$${_money(state.subtotal)}',
+                  ),
+                  const SizedBox(height: 6),
+                  _SummaryRow(
+                    label: AppStrings.deliveryFee,
+                    value: state.items.isEmpty
+                        ? '\$0.00'
+                        : '\$${_money(CartState.deliveryFee)}',
+                  ),
+                  const SizedBox(height: 6),
+                  _SummaryRow(
+                    label: AppStrings.tax,
+                    value: '\$${_money(state.tax)}',
+                  ),
                   const Divider(height: 24),
-                  _row(theme, AppStrings.total, "\$${_money(state.total)}", isTotal: true),
+                  _SummaryRowTotal(
+                    label: AppStrings.total,
+                    value: '\$${_money(state.total)}',
+                  ),
                   const SizedBox(height: 16),
                   PrimaryButton(
                     text: AppStrings.proceedToCheckout,
-                    onPressed: () => Navigator.of(context).pushNamed('/delivery'),
+                    onPressed: () {
+                      Navigator.of(context).pushNamed('/delivery');
+                    },
                   ),
                 ],
               ),
@@ -70,32 +79,63 @@ class CartScreenContent extends StatelessWidget {
       },
     );
   }
+}
 
-  Widget _row(TextTheme theme, String label, String value, {bool isTotal = false}) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 4),
-      child: Row(
-        children: [
-          Expanded(
-            child: Text(
-              label,
-              style: theme.bodyMedium?.copyWith(
-                fontSize: isTotal ? 16 : 14,
-                fontWeight: isTotal ? FontWeight.bold : FontWeight.normal,
-                color: isTotal ? AppColors.black : AppColors.darkGrey,
-              ),
+class _SummaryRow extends StatelessWidget {
+  final String label;
+  final String value;
+  const _SummaryRow({required this.label, required this.value});
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Expanded(
+          child: Text(
+            label,
+            style: const TextStyle(color: AppColors.darkGrey, fontSize: 14),
+          ),
+        ),
+        Text(
+          value,
+          style: const TextStyle(
+            color: AppColors.black,
+            fontWeight: FontWeight.w600,
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class _SummaryRowTotal extends StatelessWidget {
+  final String label;
+  final String value;
+  const _SummaryRowTotal({required this.label, required this.value});
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Expanded(
+          child: Text(
+            label,
+            style: const TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.bold,
+              color: AppColors.black,
             ),
           ),
-          Text(
-            value,
-            style: theme.bodyMedium?.copyWith(
-              fontSize: isTotal ? 16 : 14,
-              fontWeight: isTotal ? FontWeight.w800 : FontWeight.w600,
-              color: isTotal ? AppColors.primaryButtonColor : AppColors.black,
-            ),
+        ),
+        Text(
+          value,
+          style: const TextStyle(
+            color: AppColors.primaryButtonColor,
+            fontWeight: FontWeight.w800,
+            fontSize: 16,
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

@@ -37,7 +37,7 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
     emit(ProductLoadingState());
     await _productsSubscription?.cancel();
     _productsSubscription = productRepo.getProducts().listen((products) {
-      add(ProductsLoadedInternally(products)); 
+      add(ProductsLoadedInternally(products));
     });
   }
 
@@ -126,6 +126,12 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
     _isUploadCancelled = true;
     add(LoadProductsEvent());
     emit(ProductInitialState());
+  }
+
+  @override
+  Future<void> close() {
+    _productsSubscription?.cancel();
+    return super.close();
   }
 
   // @override

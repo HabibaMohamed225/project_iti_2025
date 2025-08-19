@@ -24,9 +24,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(child: _pages[_selectedIndex]),
-
-            bottomNavigationBar: const AppBottomNav(currentIndex: 0),
-
+      bottomNavigationBar: const AppBottomNav(currentIndex: 0),
     );
   }
 }

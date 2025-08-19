@@ -134,7 +134,7 @@ class AppStrings {
   static const String saveChanges = 'Save Changes';
   static const String noUsername = 'No username';
   static const String noEmail = 'No email';
-  static const String maskedPassword = '';
+  static const String maskedPassword = '******';
   static const String deleteAccountInstruction =
       'If you want to delete the account, click here.';
   static const String errorOccurred = 'An error occurred: ';
@@ -151,6 +151,4 @@ class AppStrings {
   static const String welcomeMessage = "Welcome to Relax restaurant";
   static const String searchHint = "Search...";
   static const String noItemsFound = "No items found";
-
-  
 }
