@@ -13,13 +13,8 @@ It provides an intuitive interface for customers to order food and an admin pane
 
 ## 🎬 Live Demo
 
-<div align="center">
-  <img src="https://images2.imgbox.com/73/bf/dJwUGt3r_o.gif" alt="App Short Demo" width="500"/>
-  <br><br>
-  <a href="https://sendvid.com/no3cj6tw" target="_blank">
-    ▶️ <b>Watch Full Demo Video</b>
-  </a>
-</div>
+[![Watch the video](https://images2.imgbox.com/73/bf/dJwUGt3r_o.gif)](https://sendvid.com/no3cj6tw)
+
 
 ---
 
