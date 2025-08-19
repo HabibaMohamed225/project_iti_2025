@@ -9,11 +9,11 @@ It provides an intuitive interface for customers to order food and an admin pane
 ## 🎬 Live Demo
 
 <div align="center">
-  <img src="https://imgbox.com/dJwUGt3r" alt="App Demo GIF" width="500"/>
+  [<img src="https://imgbox.com/dJwUGt3r" alt="App Demo GIF" width="500"/>
   <br><br>
   <a href="https://sendvid.com/no3cj6tw" target="_blank">
     ▶️ Watch Full Demo Video
-  </a>
+  </a>](https://imgbox.com/dJwUGt3r)
 </div>
 
 ## 🚀 Features
