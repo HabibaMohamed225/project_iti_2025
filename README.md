@@ -1,15 +1,27 @@
 # 🍽️ Relax - Restaurant App
 
+[![Flutter](https://img.shields.io/badge/Flutter-Framework-blue)](https://flutter.dev/)
+[![Firebase](https://img.shields.io/badge/Firebase-Backend-orange)](https://firebase.google.com/)
+[![Dart](https://img.shields.io/badge/Dart-Language-blue)](https://dart.dev/)
+
 **Relax** is a modern restaurant application built with **Flutter** and fully integrated with **Firebase** for authentication and data management.  
 It provides an intuitive interface for customers to order food and an admin panel to manage the restaurant menu.
 
 > 💡 Developed as a **team project** by **Shorouk Nasser**, **Shadi Fathi**, and **Habiba Mohamed**.
 
 ---
+
 ## 🎬 Live Demo
 
-![App Demo GIF](https://images2.imgbox.com/73/bf/dJwUGt3r_o.gif) 
+<div align="center">
+  <img src="https://images2.imgbox.com/73/bf/dJwUGt3r_o.gif" alt="App Short Demo" width="500"/>
+  <br><br>
+  <a href="https://sendvid.com/no3cj6tw" target="_blank">
+    ▶️ <b>Watch Full Demo Video</b>
+  </a>
+</div>
 
+---
 
 ## 🚀 Features
 
@@ -40,37 +52,36 @@ It provides an intuitive interface for customers to order food and an admin pane
 
 ---
 
-## 🎬 Demo Video
+## 🎬 Demo Video (Preview + Full)
 
 ![App Demo GIF](https://images2.imgbox.com/7b/b6/zHsnVYXg_o.gif)  
-[▶️ **Watch Full Demo Video Here**](https://thumbs2.imgbox.com/0d/e4/Dsb9cPuR_t.gif
-)
+[▶️ **Watch Full Demo Video Here**](https://sendvid.com/no3cj6tw)
 
-> The GIF above is a short preview. Click the link to watch the full demo video on Google Drive.
+> The GIF above is a short preview. Click the link to watch the full demo video.
 
 ---
 
 ## 🖼️ Screenshots (Animated GIFs)
 
-### Home Screen
-![Home Screen GIF](https://i.ibb.co/HOME_SCREEN.gif)
+> **Replace these placeholders with your own uploaded GIFs from ImgBB or ImgBox (direct `.gif` links).**
 
-### Cart Screen
-![Cart Screen GIF](https://i.ibb.co/CART_SCREEN.gif)
+### Home Screen  
+![Home Screen GIF](https://your-direct-link-home.gif)  
 
-### Admin Panel
-![Admin Panel GIF](https://i.ibb.co/ADMIN_PANEL.gif)
+### Cart Screen  
+![Cart Screen GIF](https://your-direct-link-cart.gif)  
 
-> Replace GIF links with your own uploaded GIFs on ImageBB.
+### Admin Panel  
+![Admin Panel GIF](https://your-direct-link-admin.gif)  
 
 ---
 
 ## 🛠️ Tech Stack
-- **Flutter** - UI development  
-- **Firebase Authentication** - Login & Signup  
-- **Firebase Firestore** - Data storage  
-- **Bloc State Management** - State handling  
-- **Dart** - Programming language  
+- **Flutter** – UI development  
+- **Firebase Authentication** – Login & Signup  
+- **Firebase Firestore** – Data storage  
+- **Bloc State Management** – State handling  
+- **Dart** – Programming language  
 
 ---
 
