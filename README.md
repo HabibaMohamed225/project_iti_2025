@@ -54,7 +54,7 @@ It provides an intuitive interface for customers to order food and an admin pane
 > **Replace these placeholders with your own uploaded GIFs from ImgBB or ImgBox (direct `.gif` links).**
 
 ### Home Screen  
-![Home Screen GIF](https://your-direct-link-home.gif)  
+![Home Screen GIF](https://i.ibb.co/DfmMwtv4/fianal2.gif)  
 
 ### Cart Screen  
 ![Cart Screen GIF](https://your-direct-link-cart.gif)  
