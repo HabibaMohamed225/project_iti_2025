@@ -6,7 +6,7 @@
 **Relax** is a modern restaurant application built with **Flutter** and fully integrated with **Firebase** for authentication and data management.  
 It provides an intuitive interface for customers to order food and an admin panel to manage the restaurant menu.
 
-> 💡 Developed as a **team project** by **Shorouk Nasser**, **Shadi Fathi**, and **Habiba Mohamed**.
+> 💡 Developed as a **team project** by **Shorouk Nasser**, **Shadya Fathi**, and **Habiba Mohamed**.
 
 ---
 ## 🎬 Live Demo
