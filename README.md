@@ -10,8 +10,7 @@ It provides an intuitive interface for customers to order food and an admin pane
 
 ---
 ## 🎬 Live Demo
-<a href="https://ibb.co/GQGMC087"><img src="https://i.ibb.co/DfmMwtv4/fianal2.gif" alt="fianal2" border="0"></a>
-### 👨‍💼 Admin
+![App Demo GIF](https://images2.imgbox.com/7b/b6/zHsnVYXg_o.gif)  ### 👨‍💼 Admin
 - Add new products to the menu.
 - Delete existing products.
 - Update product details (name, price, image).
