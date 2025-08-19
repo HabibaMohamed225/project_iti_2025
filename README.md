@@ -10,8 +10,7 @@ It provides an intuitive interface for customers to order food and an admin pane
 
 ---
 ## 🎬 Live Demo
-![App Demo GIF](https://i.ibb.co/DfmMwtv4/fianal2.gif)  
-## 🚀 Features
+![App Demo GIF](https://images2.imgbox.com/7b/b6/zHsnVYXg_o.gif)  
 
 ### 👨‍💼 Admin
 - Add new products to the menu.
