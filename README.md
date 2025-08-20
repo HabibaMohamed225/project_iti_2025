@@ -16,7 +16,7 @@ It provides an intuitive interface for customers to order food and an admin pane
 - Add new products to the menu.
 - Delete existing products.
 - Update product details (name, price, image).
-- Data stored directly in **Firebase Firestore**.
+- Data stored directly in **Firebase Firestore**,and API (image BB).
 
 ### 👤 Regular User
 1. **Sign Up & Login**
