@@ -10,7 +10,6 @@ part 'login_state.dart';
 class LoginBloc extends Bloc<LoginEvent, LoginState> {
   LoginBloc() : super(LoginInitial()) {
     on<LoginButttonPressedEvent>(_onLogin);
-    on<LogoutButttonPressedEvent>(_onLogout);
   }
 
   static const String demoEmail = 'admin@gmail.com';
@@ -60,14 +59,5 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     } catch (e) {
       emit(LoginFaildState('error: ${e.toString()}'));
     }
-  }
-
-  Future<void> _onLogout(
-    LogoutButttonPressedEvent event,
-    Emitter<LoginState> emit,
-  ) async {
-    final authRepo = AuthRepo();
-    await authRepo.signOut();
-    emit(LoginInitial());
   }
 }
