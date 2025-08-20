@@ -8,8 +8,6 @@ part 'signup_state.dart';
 class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
   SignUpBloc() : super(SignUpInitial()) {
     on<SignUpSubmittedEvent>(_onSignUpSubmitted);
-    // on<SignUpReset>(_onSignUpReset);
-    // on<InitiSingUpScreenEvent>(_onSignUpIniti);
   }
 
   Future<void> _onSignUpSubmitted(
@@ -37,11 +35,6 @@ class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
     }
   }
 
-  // void _onSignUpReset(SignUpReset event, Emitter<SignUpState> emit) {
-  //   emit(SignUpInitial());
-  // }
-
-  // void _onSignUpIniti(InitiSingUpScreenEvent event, Emitter<SignUpState> emit) {
-  //   emit(SignUpInitial());
-  // }
+ 
+ 
 }
